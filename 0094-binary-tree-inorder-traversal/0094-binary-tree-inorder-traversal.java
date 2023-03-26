@@ -1,29 +1,19 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-     List<Integer> ans = new ArrayList<>();
-    public List<Integer> inorderTraversal(TreeNode root) {
-      
-    if(root!= null){
-        inorderTraversal(root.left);
-        ans.add(root.val);
-        inorderTraversal(root.right);
-    }
-        return ans;
-    }
-     
-    
-}
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans=[]
+        
+        def inorder(node):
+            if not node:
+                return 
+            inorder(node.left)
+            ans.append(node.val)
+            inorder(node.right)
+        inorder(root)
+        return ans
+            
